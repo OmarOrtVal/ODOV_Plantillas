@@ -7,10 +7,11 @@
 </head>
 <body>
     <h1>Mi primera plantilla con Flask y jinja2</h1>
-    <h4>Creado por {{nombre}}</h4>
     <ol>
-        {%for amigos in amigo%}
-        <li></li>
+        {% for ciudad in ciudades%}
+        <li>{{ciudad}}</li>
+        {%endfor%}
     </ol>
+        <h4>Creado por {{nombre}}</h4>
 </body>
 </html>
