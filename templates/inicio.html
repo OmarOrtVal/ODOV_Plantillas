@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }} - Mi primer proyecto con plantillas{% endblock title %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    <p class="lead">{{ info }}</p>
+    
+    <hr>
+    
+    <div class="row text-center mt-4">
+        <div class="col-md-4">
+            <h2>Animales </h2>
+            <p>Descubre el mundo de las especies raras.</p>
+        </div>
+        <div class="col-md-4">
+            <h2>Vehículos </h2>
+            <p>Viaja en el tiempo con los autos clásicos.</p>
+        </div>
+        <div class="col-md-4">
+            <h2>Maravillas </h2>
+            <p>Conoce los sitios más espectaculares del planeta.</p>
+        </div>
+    </div>
+{% endblock content %}

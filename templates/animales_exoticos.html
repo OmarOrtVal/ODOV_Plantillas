@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}Animales Exóticos - Mi primer proyecto con plantillas{% endblock title %}
+
+{% block content %}
+    <h1 class="mb-4">{{ title }}</h1>
+    <p class="fs-5">{{ content }}</p>
+
+    <h1 class="mt-5 mb-3">Animales Aéreos</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <h2>El Búho</h2>
+            <p>
+                Los búhos son aves de presa principalmente **nocturnas** que cazan en la oscuridad. Tienen un sentido de la vista y el oído muy desarrollados, y su rostro plano actúa como un radar. Sus plumas tienen bordes desflecados que les permiten un **vuelo silencioso**. Pueden girar su cabeza hasta 270 grados en ambas direcciones. Son **carnívoros** y su dieta se compone de pequeños mamíferos, insectos, peces, lagartijas y otras aves.
+            </p>
+            <div class="text-end mb-3"> 
+                <img src="/static\img/buho.jpeg" class="img-fluid" alt="Imagen de un búho" style="max-height: 150px;">
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <h2>El Águila</h2>
+            <p>
+                Las águilas son grandes aves de presa **diurnas**, destacadas por su fuerza y aguda visión. Son de gran tamaño, como el águila real, que puede tener una envergadura de hasta dos metros y medio. Poseen un pico robusto en forma de gancho y garras fuertes. Su hábitat incluye cortados rocosos de montañas, bosques y praderas. Construyen **nidos grandes** en acantilados o copas de árboles. Son principalmente **carnívoras** y se alimentan de liebres, otros mamíferos pequeños, aves y, a veces, carroña.
+            </p>
+            <div class="text-end mb-3"> 
+                <img src="/static\img/aguila.jpeg" class="img-fluid" alt="Imagen de un águila" style="max-height: 150px;">
+            </div>
+        </div>
+    </div>
+
+    <h1 class="mt-5 mb-3">Animales Acuáticos</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <h2>El Delfín</h2>
+            <p>
+                Los delfines son cetáceos dentados conocidos por su **inteligencia y sociabilidad**. Son mamíferos y respiran aire a través del espiráculo. Practican el **sueño unilateral** (cierran solo la mitad del cerebro) para mantenerse alerta y controlar la respiración. Se comunican y orientan utilizando la **ecolocalización** (sonar), emitiendo clics y traduciendo los ecos. Viven en **grupos sociales** y se alimentan de peces, calamares y crustáceos.
+            </p>
+            <div class="text-end mb-3"> 
+                <img src="/static\img/delfin.jpeg" class="img-fluid" alt="Imagen de un delfín" style="max-height: 150px;">
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <h2>Los Tiburones (Peces Cartilaginosos)</h2>
+            <p>
+                Los tiburones son peces depredadores caracterizados por su **esqueleto de cartílago** y su gran diversidad. Se clasifican como **carnívoros** (la mayoría se alimenta de peces, calamares y mamíferos marinos, como el tiburón mako) y **planctívoros** (especies gigantes, como el tiburón ballena, que se alimentan de plancton). Se encuentran en hábitats marinos, costeros y oceánicos en todo el mundo.
+            </p>
+            <div class="text-end mb-3"> 
+                <img src="/static\img/tiburon.webp" class="img-fluid" alt="Imagen de un tiburón" style="max-height: 150px;">
+            </div>
+        </div>
+    </div>
+
+    <h1 class="mt-5 mb-3">Animales Terrestres</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Los Lobos (Mamíferos Sociales)</h2>
+            <p>
+                Los lobos (*Canis lupus*) son cánidos muy **sociales** que viven en manadas con una jerarquía clara (Par Alfa, Lobos Beta, Lobos Omega). Son **territoriales**, marcando extensas áreas. La caza es un ejercicio de **coordinación** en equipo. Se comunican mediante **aullidos** y un amplio lenguaje corporal.
+            </p>
+            <div class="text-end mb-3"> 
+                <img src="/static\img/lobo.webp" class="img-fluid" alt="Imagen de un lobo" style="max-height: 150px;">
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <h2>Los Pandas Gigantes (Especie Vulnerable)</h2>
+            <p>
+                El panda gigante (*Ailuropoda melanoleuca*) es un oso nativo de China, un símbolo de la conservación. Su dieta es casi exclusivamente **vegetariana**, compuesta en un 99\% de bambú (de 12 a 38 kg al día), complementada ocasionalmente con pequeños animales o insectos. Viven en los bosques templados del suroeste de China. Son **solitarios y pacíficos**. Actualmente se encuentran en estado de conservación **Vulnerable** debido a la pérdida de hábitat.
+            </p>
+            <div class="text-end mb-3"> 
+                <img src="/static\img/panda.webp" class="img-fluid" alt="Imagen de un panda gigante" style="max-height: 150px;">
+            </div>
+        </div>
+    </div>
+{% endblock content %}
