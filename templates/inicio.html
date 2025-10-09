@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}{{ title }} - Mi primer proyecto con plantillas{% endblock title %}
+{% block title %}{{ title }} -Desarrollo de Plantilla Base{% endblock title %}
 
 {% block content %}
     <h1>{{ title }}</h1>
@@ -9,8 +9,22 @@
     <hr>
     
     <div class="row text-center mt-4">
+        <div class="col-12">
             <h2>Bienveidos a esta pagina creada con plantillas de Flask </h2>
             <p>En esta pagina web podras explorar un poco acerca de Animales,Vehiculos Antiguos,las 7 Marravillas del mundo y conocer a el creador de la pagina.</p>
         </div>
     </div>
+
+    <div class="row justify-content-center my-5">
+        <div class="col-md-6 col-lg-4">
+            <img src="/static/img/imagen_bienvenida_1.jpg" class="img-fluid rounded shadow" alt="Imagen de Bienvenida 1">
+        </div>
+    </div>
+    
+    <div class="row justify-content-center mb-5">
+        <div class="col-md-6 col-lg-4">
+            <img src="/static/img/imagen_bienvenida_2.png" class="img-fluid rounded shadow" alt="Imagen de Bienvenida 2">
+        </div>
+    </div>
+    
 {% endblock content %}

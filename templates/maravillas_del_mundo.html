@@ -1,17 +1,16 @@
 {% extends "base.html" %}
 
-{% block title %}{{ title }} - Mi primer proyecto con plantillas{% endblock title %}
+{% block title %}{{ title }} - Desarrollo de Plantilla Base{% endblock title %}
 
 {% block content %}
     <h1 class="mb-4">{{ title }}</h1>
     <p class="fs-5">{{ content }}</p>
 
-    <div class="row mb-5">
+    <div class="row mb-5 bg-warning-subtle border">
         <div class="col-12">
-            <h3 class="text-center mb-4">Las 7 Maravillas del Mundo Antiguo</h3>
         </div>
         
-        <div class="col-md-6 mb-4">
+        <div class="col-md-6 mb-4 overflow-auto">
             <h4>La Gran Pirámide de Guiza</h4>
             <p>
                 * Historia y Porqué: Construida alrededor del 2570 a.C. en Egipto. Fue encargada por el faraón Keops (Khufu) como su tumba para asegurar su paso a la otra vida. Es la única de las Siete Maravillas que aún sigue en pie.
@@ -28,10 +27,7 @@
                     </div>
                     <div class="carousel-item">
                         <img src="/static\img/piramide de giza.1.jpeg" class="d-block w-100" alt="Gran Pirámide de Guiza (Imagen 2)">
-                    </div> 
-                    <div class="carousel-item">
-                        <img src="/static\img/piramide de giza.2.jpeg" class="d-block w-100" alt="Gran Pirámide de Guiza (Imagen 3)">
-                    </div> 
+                    </div>  
                 </div>
         
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselPiramide" data-bs-slide="prev">
@@ -46,82 +42,376 @@
             </div>
         
         <div class="col-md-6 mb-4">
-            <h4>[Nombre de la Maravilla Antigua 2]</h4>
-            <p>[Breve descripción]</p>
-            <div class="carousel-placeholder bg-light p-3 text-center border">
-                [Aquí va el código del Carrusel de Imágenes de la Maravilla 2]
+            <h4>Los Jardines Colgantes de Babilonia</h4>
+            <p> * Historia y Porqué: Se dice que fueron construidos entre \mathbf{605} y \mathbf{562} a.C. en la antigua ciudad de Babilonia (actual Irak). La tradición más popular atribuye su construcción al rey Nabucodonosor II para consolar a su esposa, Amitis, que extrañaba los paisajes verdes de su tierra natal.
+                * Arquitectura y Explicación: Es la maravilla de cuya existencia se tiene menos evidencia arqueológica concluyente.
+                * Estructura: Se describen como una serie de terrazas escalonadas (posiblemente de hasta \mathbf{23} metros de altura), que creaban una montaña artificial verde.
+                * Innovación: El asombro principal radicaba en el sistema de riego para mantener la exuberante vegetación en medio de un clima árido, probablemente utilizando bombas (posiblemente tornillos de Arquímedes) para elevar el agua del río Éufrates.
+</p>
+            <div id="carouselJardin" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner border">
+                    <div class="carousel-item active">
+                        <img src="/static\img/Los Jardines Colgantes de Babilonia.jpeg" class="d-block w-100" alt="Los Jardines Colgantes de Babilonia (Imagen 1)">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/static\img/Los Jardines Colgantes de Babilonia .1.webp" class="d-block w-100" alt="Los Jardines Colgantes de Babilonia (Imagen 2)">
+                    </div>  
+                </div>
+        
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselJardin" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselJardin" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            </div>
+
+        <div class="col-md-6 mb-4">
+            <h4>La Estatua de Zeus en Olimpia</h4>
+            <p> * Historia y Porqué: Esculpida alrededor del \mathbf{430} a.C. por el famoso escultor Fidias, en la ciudad de Olimpia, Grecia. Fue creada para honrar al dios principal del panteón griego, Zeus, y ubicarse dentro de su templo. El propósito era dar un arquetipo visual majestuoso del "padre de los dioses" en el lugar de origen de los Juegos Olímpicos.
+                * Arquitectura y Explicación: Una escultura de culto colosal.
+                * Estructura: Medía unos \mathbf{12} metros de altura. Era una escultura crisoelefantina, lo que significa que estaba construida con un marco de madera y cubierta con placas de marfil para la carne y láminas de oro para la ropa y adornos.
+                * Destrucción: Desapareció en el siglo V d.C., probablemente destruida por un incendio en Constantinopla (donde pudo haber sido trasladada).
+</p>
+            <div id="carouselEstatua" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner border">
+                    <div class="carousel-item active">
+                        <img src="/static\img/La Estatua de Zeus en Olimpia.jpeg" class="d-block w-100" alt="La Estatua de Zeus en Olimpia(Imagen 1)">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/static\img/La Estatua de Zeus en Olimpia.1.jpeg" class="d-block w-100" alt="La Estatua de Zeus en Olimpia(Imagen 2)">
+                    </div>  
+                </div>
+        
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselEstatua" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselEstatua" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            </div>
+        <div class="col-md-6 mb-4">
+            <h4>El Templo de Artemisa en Éfeso</h4>
+            <p> * Historia y Porqué: Ubicado en Éfeso (actual Turquía). Aunque se construyó y destruyó varias veces, su versión más famosa fue reconstruida en el siglo IV a.C. Estaba dedicado a la diosa griega de la caza y la fertilidad, Artemisa. Su intención era ser un centro de culto y la edificación más impresionante del mundo helénico.
+                * Arquitectura y Explicación: Un templo de dimensiones colosales.
+                * Estructura: Construido completamente en mármol blanco. Era un templo de estilo jónico que presentaba más de \mathbf{120} columnas, cada una de unos \mathbf{18} metros de altura.
+                * Destrucción: Fue incendiado intencionadamente en el \mathbf{356} a.C. (por un hombre llamado Eróstrato que quería fama) y saqueado siglos después.
+</p>
+            <div id="carouselTemplo" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner border">
+                    <div class="carousel-item active">
+                        <img src="/static\img/El Templo de Artemisa en Éfeso.jpeg" class="d-block w-100" alt="El Templo de Artemisa en Éfeso(Imagen 1)">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/static\img/El Templo de Artemisa en Éfeso.1.jpeg" class="d-block w-100" alt="El Templo de Artemisa en Éfeso(Imagen 2)">
+                    </div>  
+                </div>
+        
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselTemplo" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselTemplo" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            </div>
+        <div class="col-md-6 mb-4">
+            <h4>El Mausoleo de Halicarnaso</h4>
+            <p> * Historia y Porqué: Construido entre \mathbf{353} y \mathbf{350} a.C. en Halicarnaso (actual Bodrum, Turquía). Fue erigido por la reina Artemisia en honor a su difunto esposo, Mausolo, sátrapa del Imperio Persa. Su asombro como tumba monumental fue tal que dio origen al término universal "mausoleo".
+                * Arquitectura y Explicación: Un monumento funerario que combinaba varios estilos.
+                * Estructura: Tenía una altura de unos \mathbf{45} metros. Se cree que combinaba elementos arquitectónicos griegos (columnas jónicas), egipcios (plataforma escalonada) y orientales.
+                * Decoración: Estaba coronado por una pirámide escalonada y una cuadriga con la estatua de Mausolo. Estaba decorado con frisos y esculturas de artistas griegos renombrados.
+                * Destrucción: Colapsó debido a una serie de terremotos en la Edad Media.
+</p>
+            
+            <div id="carouselMausoleo" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner border">
+                    <div class="carousel-item active">
+                        <img src="/static\img/El Mausoleo de Halicarnaso.jpeg" class="d-block w-100" alt="El Mausoleo de Halicarnaso(Imagen 1)">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/static\img/El Mausoleo de Halicarnaso.1.jpeg" class="d-block w-100" alt="El Mausoleo de Halicarnaso(Imagen 2)">
+                    </div>  
+                </div>
+        
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselMausoleo" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselMausoleo" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            </div>
+        <div class="col-md-6 mb-4">
+            <h4>El Coloso de Rodas</h4>
+            <p> * Historia y Porqué: Forjado entre \mathbf{294} y \mathbf{282} a.C. en la isla de Rodas, Grecia. Fue erigido por el escultor Cares de Lindos para conmemorar la exitosa defensa de la ciudad contra un asedio. Representaba al dios griego del sol, Helios, protector de la isla.
+                * Arquitectura y Explicación: Una estatua de bronce gigante.
+                * Estructura: Una estatua de bronce de unos \mathbf{32} metros de altura. Contrario a la creencia popular, no se ubicaba con las piernas abiertas sobre el puerto, sino probablemente de pie junto a él sobre un pedestal de mármol.
+                * Destrucción: Permaneció en pie solo \mathbf{56} años antes de ser derribado por un terremoto en el \mathbf{226} a.C. Sus restos yacieron en el suelo durante siglos.
+</p>
+            <div id="carouselColoso" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner border">
+                    <div class="carousel-item active">
+                        <img src="/static\img/El Coloso de Rodas.jpeg" class="d-block w-100" alt="El Coloso de Rodas(Imagen 1)">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/static\img/El Coloso de Rodas.1.jpeg" class="d-block w-100" alt="El Coloso de Rodas(Imagen 2)">
+                    </div>  
+                </div>
+        
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselColoso" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselColoso" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            </div>
+        <div class="col-md-6 mb-4 mx-auto">
+            <h4>El Faro de Alejandría</h4>
+            <p> * Historia y Porqué: Construido alrededor del siglo III a.C. en la isla de Faros, frente a Alejandría, Egipto, durante el reinado de Ptolomeo II. Su propósito era ser un faro guía para los navegantes y un símbolo del poder y la prosperidad de la ciudad. Fue el faro más alto y duradero de la Antigüedad.
+                *Arquitectura y Explicación: Una de las estructuras más altas de la antigüedad.
+                * Estructura: Se estima que medía más de \mathbf{100} metros de altura y constaba de tres secciones: una base cuadrada, una sección octogonal intermedia y una sección cilíndrica superior.
+                * Tecnología: En la cima, un fuego nocturno y un posible espejo metálico reflejaban la luz a millas de distancia para orientar a los barcos.
+                * Destrucción: Fue destruido progresivamente por varios terremotos entre los siglos XIII y XIV.
+</p>
+            <div id="carouselFaro" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner border">
+                    <div class="carousel-item active">
+                        <img src="/static\img/El Faro de Alejandría.jpeg" class="d-block w-100" alt="El Faro de Alejandría(Imagen 1)">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/static\img/El Faro de Alejandría.1.jpeg" class="d-block w-100" alt="El Faro de Alejandría(Imagen 2)">
+                    </div>  
+                </div>
+        
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselFaro" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselFaro" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            </div>
+                    <div class="col-md-6 mb-4">
+            <h4>La Gran Muralla China</h4>
+            <p>
+                * Historia y Porqué: Es una serie de fortificaciones construidas y reconstruidas desde el siglo VII a.C. Su versión más famosa se debe a la **Dinastía Ming** (1368-1644). Fue construida para proteger los estados y el imperio chino de las incursiones de las tribus nómadas de las estepas del norte.
+                * Arquitectura y Explicación: Es la estructura más grande jamás construida por el ser humano. 
+                * Estructura: Su longitud total, incluyendo todas sus ramas, se estima en más de $\mathbf{21,196}$ kilómetros. Combina muros, torres de vigilancia, cuarteles, y fortalezas.
+                * Materiales: Principalmente tierra apisonada, ladrillo, piedra, y madera.
+            </p>
+            
+            <div id="carouselMuralla" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner border">
+                    <div class="carousel-item active">
+                        <img src="/static\img/la gran muralla.jpeg" class="d-block w-100" alt="La Gran Muralla China (Imagen 1)">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/static\img/la gran muralla.1.jpeg" class="d-block w-100" alt="La Gran Muralla China (Imagen 2)">
+                    </div> 	
+                </div>
+        
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselMuralla" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselMuralla" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="col-md-6 mb-4">
+            <h4>Petra, Jordania</h4>
+            <p> 
+                * Historia y Porqué: Fundada posiblemente ya en el año $\mathbf{312}$ a.C., fue la capital del reino nabateo. Se convirtió en un importante cruce de caminos para las rutas de la seda y las especias. El misterio de su desaparición tras un cambio de rutas comerciales la mantuvo "perdida" para Occidente durante siglos.
+                * Arquitectura y Explicación: Famosa por sus construcciones labradas directamente en la roca de arenisca.
+                * Estructura: Posee cientos de estructuras, incluyendo templos, tumbas, monasterios y el famoso tesoro **Al-Khazneh**, excavado en un acantilado.
+                * Innovación: El dominio de la ingeniería hidráulica de los nabateos les permitía almacenar y distribuir agua eficientemente en un entorno desértico.
+            </p>
+            <div id="carouselPetra" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner border">
+                    <div class="carousel-item active">
+                        <img src="/static\img/Petra, Jordania.jpeg" class="d-block w-100" alt="Petra (Imagen 1)">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/static\img/Petra, Jordania.1.jpeg" class="d-block w-100" alt="Petra (Imagen 2)">
+                    </div> 	
+                </div>
+        
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselPetra" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselPetra" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
 
         <div class="col-md-6 mb-4">
-            <h4>[Nombre de la Maravilla Antigua 3]</h4>
-            <p>[Breve descripción]</p>
-            <div class="carousel-placeholder bg-light p-3 text-center border">
-                [Aquí va el código del Carrusel de Imágenes de la Maravilla 3]
+            <h4>El Cristo Redentor, Brasil</h4>
+            <p> 
+                * Historia y Porqué: Ubicada en la cima del Cerro del Corcovado en Río de Janeiro. La idea se propuso a mediados del siglo XIX, pero la estatua se construyó entre $\mathbf{1922}$ y $\mathbf{1931}$. Fue un símbolo religioso y cultural de la cristiandad en Brasil.
+                * Arquitectura y Explicación: Una estatua de estilo Art déco que domina el paisaje de Río.
+                * Estructura: Mide $\mathbf{30}$ metros de altura sobre un pedestal de $\mathbf{8}$ metros. Sus brazos se extienden $\mathbf{28}$ metros de ancho.
+                * Materiales: Construida con hormigón armado y cubierta con miles de pequeños mosaicos de esteatita (piedra jabón).
+            </p>
+            <div id="carouselCristo" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner border">
+                    <div class="carousel-item active">
+                        <img src="/static\img/El Cristo Redentor, Brasil.jpeg" class="d-block w-100" alt="El Cristo Redentor (Imagen 1)">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/static\img/El Cristo Redentor, Brasil.1.jpeg" class="d-block w-100" alt="El Cristo Redentor (Imagen 2)">
+                    </div> 	
+                </div>
+        
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselCristo" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselCristo" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
+
         <div class="col-md-6 mb-4">
-            <h4>[Nombre de la Maravilla Antigua 4]</h4>
-            <p>[Breve descripción]</p>
-            <div class="carousel-placeholder bg-light p-3 text-center border">
-                [Aquí va el código del Carrusel de Imágenes de la Maravilla 4]
+            <h4>Machu Picchu, Perú</h4>
+            <p> 
+                * Historia y Porqué: Construido a mediados del siglo XV durante el apogeo del Imperio Inca. Se cree que fue una residencia de descanso para el emperador inca **Pachacútec** o un santuario religioso. Se mantuvo oculta a los conquistadores españoles, lo que contribuyó a su notable estado de conservación.
+                * Arquitectura y Explicación: Un centro urbano y ceremonial a $\mathbf{2,430}$ metros sobre el nivel del mar, en un entorno natural espectacular.
+                * Estructura: Destaca la precisión de su albañilería pulida (*ashlar*), donde los bloques de piedra se ajustan perfectamente sin mortero.
+                * Innovación: Posee un avanzado sistema de terrazas agrícolas que prevenía la erosión y maximizaba el uso de la tierra.
+            </p>
+            <div id="carouselMachu" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner border">
+                    <div class="carousel-item active">
+                        <img src="/static\img/Machu Picchu, Perú.jpeg" class="d-block w-100" alt="Machu Picchu (Imagen 1)">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/static\img/Machu Picchu, Perú.1.jpeg" class="d-block w-100" alt="Machu Picchu (Imagen 2)">
+                    </div> 	
+                </div>
+        
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselMachu" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselMachu" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
+
         <div class="col-md-6 mb-4">
-            <h4>[Nombre de la Maravilla Antigua 5]</h4>
-            <p>[Breve descripción]</p>
-            <div class="carousel-placeholder bg-light p-3 text-center border">
-                [Aquí va el código del Carrusel de Imágenes de la Maravilla 5]
+            <h4>Chichén Itzá, México</h4>
+            <p> 
+                * Historia y Porqué: Un gran centro ceremonial de la civilización maya, que alcanzó su apogeo entre los siglos IX y X d.C. Su nombre significa "boca del pozo de los Itzá". Fue un importante centro político y económico en la península de Yucatán.
+                * Arquitectura y Explicación: Combina estilos arquitectónicos mayas tradicionales con influencias de otras culturas del centro de México.
+                * Estructura: Su estructura principal es la pirámide de **Kukulcán** (El Castillo), que tiene $\mathbf{91}$ escalones por cada uno de sus cuatro lados, más la plataforma superior, sumando $\mathbf{365}$ (los días del año).
+                * Decoración: Famosa por el fenómeno de equinoccio, donde la sombra proyectada en la escalera de la pirámide simula una serpiente descendiendo.
+            </p>
+            
+            <div id="carouselChichen" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner border">
+                    <div class="carousel-item active">
+                        <img src="/static\img/Chichén Itzá, México.jpeg" class="d-block w-100" alt="Chichén Itzá (Imagen 1)">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/static\img/Chichén Itzá, México.1.jpeg" class="d-block w-100" alt="Chichén Itzá (Imagen 2)">
+                    </div> 	
+                </div>
+        
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselChichen" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselChichen" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
+
         <div class="col-md-6 mb-4">
-            <h4>[Nombre de la Maravilla Antigua 6]</h4>
-            <p>[Breve descripción]</p>
-            <div class="carousel-placeholder bg-light p-3 text-center border">
-                [Aquí va el código del Carrusel de Imágenes de la Maravilla 6]
+            <h4>El Coliseo de Roma, Italia</h4>
+            <p> 
+                * Historia y Porqué: Construido en Roma, Italia, entre los años $\mathbf{70}$ y $\mathbf{80}$ d.C. por los emperadores de la dinastía Flavia. Su propósito era ser un anfiteatro masivo para albergar espectáculos públicos, como luchas de gladiadores y recreaciones de batallas, sirviendo como un símbolo de poder y grandeza del Imperio Romano.
+                * Arquitectura y Explicación: El anfiteatro más grande jamás construido.
+                * Estructura: Tenía capacidad para unos $\mathbf{50,000}$ a $\mathbf{80,000}$ espectadores. Su forma elíptica mide $\mathbf{189}$ metros en su eje más largo y $\mathbf{48}$ metros de altura.
+                * Tecnología: Poseía un sistema de poleas y rampas para subir animales y escenarios, así como un toldo retráctil (el *velarium*) para proteger al público del sol.
+            </p>
+            <div id="carouselColiseo" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner border">
+                    <div class="carousel-item active">
+                        <img src="/static\img/El Coliseo de Roma, Italia.jpeg" class="d-block w-100" alt="El Coliseo de Roma (Imagen 1)">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/static\img/El Coliseo de Roma, Italia.1.jpeg" class="d-block w-100" alt="El Coliseo de Roma (Imagen 2)">
+                    </div> 	
+                </div>
+        
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselColiseo" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselColiseo" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
+
         <div class="col-md-6 mb-4 mx-auto">
-            <h4>[Nombre de la Maravilla Antigua 7]</h4>
-            <p>[Breve descripción]</p>
-            <div class="carousel-placeholder bg-light p-3 text-center border">
-                [Aquí va el código del Carrusel de Imágenes de la Maravilla 7]
+            <h4>El Taj Mahal, India</h4>
+            <p> 
+                * Historia y Porqué: Construido en Agra, India, entre $\mathbf{1631}$ y $\mathbf{1648}$. Fue encargado por el emperador mogol **Shah Jahan** para albergar la tumba de su esposa favorita, Mumtaz Mahal. Es considerado el ejemplo más bello de la arquitectura mogol, un estilo que combina elementos islámicos, persas, otomanos y de la India.
+                * Arquitectura y Explicación: Un mausoleo de mármol blanco de simetría perfecta.
+                * Estructura: El complejo incluye una mezquita, una casa de huéspedes y extensos jardines. El edificio central mide unos $\mathbf{73}$ metros de altura.
+                * Materiales: Construido con mármol blanco, incrustado con $\mathbf{28}$ tipos diferentes de piedras preciosas y semipreciosas. El color del mármol cambia con la luz del día.
+            </p>
+            <div id="carouselTaj" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner border">
+                    <div class="carousel-item active">
+                        <img src="/static\img/El Taj Mahal, India.jpeg" class="d-block w-100" alt="El Taj Mahal (Imagen 1)">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/static\img/El Taj Mahal, India.1.jpeg" class="d-block w-100" alt="El Taj Mahal (Imagen 2)">
+                    </div> 	
+                </div>
+        
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselTaj" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselTaj" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
         </div>
     </div> 
         </div>
     </div> 
 {% endblock content %}
-2. Los Jardines Colgantes de Babilonia 🌳
- * Historia y Porqué: Se dice que fueron construidos entre \mathbf{605} y \mathbf{562} a.C. en la antigua ciudad de Babilonia (actual Irak). La tradición más popular atribuye su construcción al rey Nabucodonosor II para consolar a su esposa, Amitis, que extrañaba los paisajes verdes de su tierra natal.
- * Arquitectura y Explicación: Es la maravilla de cuya existencia se tiene menos evidencia arqueológica concluyente.
-   * Estructura: Se describen como una serie de terrazas escalonadas (posiblemente de hasta \mathbf{23} metros de altura), que creaban una montaña artificial verde.
-   * Innovación: El asombro principal radicaba en el sistema de riego para mantener la exuberante vegetación en medio de un clima árido, probablemente utilizando bombas (posiblemente tornillos de Arquímedes) para elevar el agua del río Éufrates.
-3. La Estatua de Zeus en Olimpia 👑
- * Historia y Porqué: Esculpida alrededor del \mathbf{430} a.C. por el famoso escultor Fidias, en la ciudad de Olimpia, Grecia. Fue creada para honrar al dios principal del panteón griego, Zeus, y ubicarse dentro de su templo. El propósito era dar un arquetipo visual majestuoso del "padre de los dioses" en el lugar de origen de los Juegos Olímpicos.
- * Arquitectura y Explicación: Una escultura de culto colosal.
-   * Estructura: Medía unos \mathbf{12} metros de altura. Era una escultura crisoelefantina, lo que significa que estaba construida con un marco de madera y cubierta con placas de marfil para la carne y láminas de oro para la ropa y adornos.
-   * Destrucción: Desapareció en el siglo V d.C., probablemente destruida por un incendio en Constantinopla (donde pudo haber sido trasladada).
-4. El Templo de Artemisa en Éfeso 🏛
- * Historia y Porqué: Ubicado en Éfeso (actual Turquía). Aunque se construyó y destruyó varias veces, su versión más famosa fue reconstruida en el siglo IV a.C. Estaba dedicado a la diosa griega de la caza y la fertilidad, Artemisa. Su intención era ser un centro de culto y la edificación más impresionante del mundo helénico.
- * Arquitectura y Explicación: Un templo de dimensiones colosales.
-   * Estructura: Construido completamente en mármol blanco. Era un templo de estilo jónico que presentaba más de \mathbf{120} columnas, cada una de unos \mathbf{18} metros de altura.
-   * Destrucción: Fue incendiado intencionadamente en el \mathbf{356} a.C. (por un hombre llamado Eróstrato que quería fama) y saqueado siglos después.
-5. El Mausoleo de Halicarnaso 🗿
- * Historia y Porqué: Construido entre \mathbf{353} y \mathbf{350} a.C. en Halicarnaso (actual Bodrum, Turquía). Fue erigido por la reina Artemisia en honor a su difunto esposo, Mausolo, sátrapa del Imperio Persa. Su asombro como tumba monumental fue tal que dio origen al término universal "mausoleo".
- * Arquitectura y Explicación: Un monumento funerario que combinaba varios estilos.
-   * Estructura: Tenía una altura de unos \mathbf{45} metros. Se cree que combinaba elementos arquitectónicos griegos (columnas jónicas), egipcios (plataforma escalonada) y orientales.
-   * Decoración: Estaba coronado por una pirámide escalonada y una cuadriga con la estatua de Mausolo. Estaba decorado con frisos y esculturas de artistas griegos renombrados.
-   * Destrucción: Colapsó debido a una serie de terremotos en la Edad Media.
-6. El Coloso de Rodas 🗽
- * Historia y Porqué: Forjado entre \mathbf{294} y \mathbf{282} a.C. en la isla de Rodas, Grecia. Fue erigido por el escultor Cares de Lindos para conmemorar la exitosa defensa de la ciudad contra un asedio. Representaba al dios griego del sol, Helios, protector de la isla.
- * Arquitectura y Explicación: Una estatua de bronce gigante.
-   * Estructura: Una estatua de bronce de unos \mathbf{32} metros de altura. Contrario a la creencia popular, no se ubicaba con las piernas abiertas sobre el puerto, sino probablemente de pie junto a él sobre un pedestal de mármol.
-   * Destrucción: Permaneció en pie solo \mathbf{56} años antes de ser derribado por un terremoto en el \mathbf{226} a.C. Sus restos yacieron en el suelo durante siglos.
-7. El Faro de Alejandría 💡
- * Historia y Porqué: Construido alrededor del siglo III a.C. en la isla de Faros, frente a Alejandría, Egipto, durante el reinado de Ptolomeo II. Su propósito era ser un faro guía para los navegantes y un símbolo del poder y la prosperidad de la ciudad. Fue el faro más alto y duradero de la Antigüedad.
- * Arquitectura y Explicación: Una de las estructuras más altas de la antigüedad.
-   * Estructura: Se estima que medía más de \mathbf{100} metros de altura y constaba de tres secciones: una base cuadrada, una sección octogonal intermedia y una sección cilíndrica superior.
-   * Tecnología: En la cima, un fuego nocturno y un posible espejo metálico reflejaban la luz a millas de distancia para orientar a los barcos.
-   * Destrucción: Fue destruido progresivamente por varios terremotos entre los siglos XIII y XIV.
-La lista de las 7 Maravillas fue un catálogo de asombro (thaumata o mirabilia) compilado por autores helenísticos, que destacaba las obras de construcción más impresionantes de su mundo conocido, reflejando el poder, la riqueza y la capacidad técnica de las culturas que las crearon.
