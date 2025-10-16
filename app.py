@@ -1,11 +1,12 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for, request, redirect, flash
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'una_clave_secreta_muy_segura_y_larga' 
 
 @app.route('/')
 def index():
-    """Ruta de inicio. Muestra la página de login."""
-    return render_template('login.html', title='Iniciar Sesión', no_menu=True)
+    """Ruta de inicio. Redirige a login."""
+    return redirect(url_for('login')) 
 
 @app.route('/inicio')
 def inicio():
@@ -38,15 +39,39 @@ def acerca_de():
     contenido = "En esta pagina conoceras acerca de el creador de esta pagina web..."
     return render_template('acerca_de.html', title='Acerca de...', content=contenido)
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     """Ruta para la página de Inicio de Sesión."""
-    return render_template('login.html', title='Iniciar Sesión', no_menu=True)
+    if request.method == 'POST':
+        email = request.form.get('email_login')
+        password = request.form.get('password_login')
 
-@app.route('/registro')
+        if email == "test@correo.com" and password == "1234":
+            flash('¡Bienvenido! Has iniciado sesión correctamente.', 'success')
+            return redirect(url_for('inicio'))
+        else:
+            flash('Fallo al iniciar sesión. Verifica tu correo y contraseña.', 'danger')
+
+    return render_template('login.html', title='Iniciar Sesión')
+
+@app.route('/registro', methods=['GET', 'POST'])
 def registro():
     """Ruta para la página de Registro."""
-    return render_template('registro.html', title='Registro', no_menu=True)
+    if request.method == 'POST':
+        nombre = request.form.get('nombre')
+        apellido = request.form.get('apellido')
+        email = request.form.get('email_registro') 
+        
+        if not all([nombre, apellido, email]):
+            flash('Todos los campos son obligatorios.', 'danger')
+            return render_template('registro.html', title='Registro')
+
+        print(f"Nuevo usuario registrado: {nombre} {apellido} con correo {email}")
+        
+        flash('Registro exitoso. ¡Ahora puedes iniciar sesión!', 'success')
+        return redirect(url_for('login'))
+        
+    return render_template('registro.html', title='Registro')
 
 if __name__ == '__main__':
     app.run(debug=True)
