@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %}Registro{% endblock title %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="padding-top: 30px; padding-bottom: 30px;">
+    <div class="card p-3 shadow-lg" style="width: 420px; border-radius: 8px;">
+        
+        <div class="card-header text-center border-0 bg-white">
+            <h4 class="mb-1">Crea una cuenta</h4>
+            <p class="text mb-0">Es rápido y fácil.</p>
+        </div>
+
+        <div class="card-body pt-0">
+            <form>
+                <div class="row g-2 mb-3">
+                    <div class="col">
+                        <input type="text" id="nombre" class="form-control" placeholder="Nombre" required>
+                    </div>
+                    <div class="col">
+                        <input type="text" id="apellido" class="form-control" placeholder="Apellido" required>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <input type="text" id="contacto" class="form-control" placeholder="Número de celular o correo electrónico" required>
+                </div>
+
+                <div class="mb-3">
+                    <input type="password" id="contrasena" class="form-control" placeholder="Contraseña nueva" required>
+                </div>
+                
+                <label class="form-label text-start d-block fw-bold fs-6">Fecha de Nacimiento</label>
+                <div class="row mb-3">
+                    <div class="col-4">
+                        <select class="form-select" required>
+                            <option value="" disabled selected>Día</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="31">31</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <select class="form-select" required>
+                            <option value="" disabled selected>Mes</option>
+                            <option value="1">Enero</option>
+                            <option value="2">Febrero</option>
+                            <option value="12">Diciembre</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <select class="form-select" required>
+                            <option value="" disabled selected>Año</option>
+                            <option value="2025">2025</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2000">2000</option>
+                        </select>
+                    </div>
+                </div>
+
+                <label class="form-label text-start d-block fw-bold fs-6">Género</label>
+                <div class="d-flex justify-content-between mb-3">
+                    <div class="form-check border p-2 flex-grow-1 me-2 rounded">
+                        <input type="radio" name="genero" value="Mujer" id="mujer" class="form-check-input float-end" required>
+                        <label class="form-check-label w-100 text-start" for="mujer">Mujer</label>
+                    </div>
+                    <div class="form-check border p-2 flex-grow-1 me-2 rounded">
+                        <input type="radio" name="genero" value="Hombre" id="hombre" class="form-check-input float-end">
+                        <label class="form-check-label w-100 text-start" for="hombre">Hombre</label>
+                    </div>
+                    <div class="form-check border p-2 flex-grow-1 rounded">
+                        <input type="radio" name="genero" value="Personalizado" id="personalizado" class="form-check-input float-end">
+                        <label class="form-check-label w-100 text-start" for="personalizado">Personalizado</label>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <p class="small">
+                        Al hacer clic en "Registrarte", aceptas nuestras 
+                        <a href="#">Condiciones</a>, la
+                        <a href="#">Política de privacidad</a> y la 
+                        <a href="#">Política de cookies</a>.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <a href="{{ url_for('inicio') }}" class="btn btn-lg btn-success w-50 mt-1">Registrarte</a>
+                    <a href="{{ url_for('login') }}" class="btn btn-lg btn-light w-100 mt-3 text-primary" role="button">¿Ya tienes una cuenta?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

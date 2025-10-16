@@ -1,14 +1,18 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for
 
 app = Flask(__name__)
 
-
 @app.route('/')
+def index():
+    """Ruta de inicio. Redirige a la página de login."""
+    return redirect(url_for('login'))
+
 @app.route('/inicio')
 def inicio():
-    """Ruta para la página de inicio."""
+    """Ruta para la página de inicio (después de iniciar sesión)."""
     info = "Aquí encontrarás información fascinante sobre animales exóticos, vehículos antiguos, maravillas del mundo y más. ¡Explora el menú superior para empezar!"
     return render_template('inicio.html', title='Inicio', info=info)
+
 
 @app.route('/animales-exoticos')
 def animales_exoticos():
@@ -33,6 +37,16 @@ def acerca_de():
     """Ruta para la sección 'Acerca de...'."""
     contenido = "En esta pagina conoceras acerca de el creador de esta pagina web..."
     return render_template('acerca_de.html', title='Acerca de...', content=contenido)
+
+@app.route('/login')
+def login():
+    """Ruta para la página de Inicio de Sesión."""
+    return render_template('login.html', title='Iniciar Sesión', no_menu=True)
+
+@app.route('/registro')
+def registro():
+    """Ruta para la página de Registro."""
+    return render_template('registro.html', title='Registro', no_menu=True)
 
 if __name__ == '__main__':
     app.run(debug=True)
