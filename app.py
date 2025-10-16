@@ -1,11 +1,11 @@
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    """Ruta de inicio. Redirige a la página de login."""
-    return redirect(url_for('login'))
+    """Ruta de inicio. Muestra la página de login."""
+    return render_template('login.html', title='Iniciar Sesión', no_menu=True)
 
 @app.route('/inicio')
 def inicio():
