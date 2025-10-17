@@ -3,7 +3,7 @@ from flask import Flask, render_template, url_for, request, redirect, flash
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'una_clave_secreta_muy_segura_y_larga' 
 
-USERS = []
+USERS = [] 
 
 @app.route('/')
 def index():
@@ -13,14 +13,16 @@ def index():
 @app.route('/inicio')
 def inicio():
     """Ruta para la página de inicio (después de iniciar sesión)."""
-    info = "Aquí encontrarás información fascinante sobre animales exóticos, vehículos antiguos, maravillas del mundo y más. ¡Explora el menú superior para empezar!"
+    user = {'nombre': 'Explorador'} 
+    
+    info = f"¡Hola {user['nombre']}! Aquí encontrarás información fascinante sobre animales exóticos, vehículos antiguos, maravillas del mundo y más. ¡Explora el menú superior para empezar!"
     return render_template('inicio.html', title='Inicio', info=info)
 
 
 @app.route('/animales-exoticos')
 def animales_exoticos():
     """Ruta para la sección de Animales Exóticos."""
-    contenido = "Bienvenido a la pestaña dedicada a los animales exóticos."
+    contenido = "Bienvenido a la pestaña dedicada a los animales exóticos. Aquí descubrirás especies únicas de todo el planeta."
     return render_template('animales_exoticos.html', title='Animales Exóticos', content=contenido)
 
 @app.route('/vehiculos-antiguos')
@@ -42,25 +44,27 @@ def acerca_de():
     return render_template('acerca_de.html', title='Acerca de...', content=contenido)
 
 
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     """Ruta para la página de Inicio de Sesión. Verifica los datos registrados en USERS."""
+    
     if request.method == 'POST':
         email = request.form.get('email_login')
         password = request.form.get('password_login')
 
-        user_found = False
+        user_found = None
         
         for user in USERS:
             if user['email'] == email and user['password'] == password:
-                user_found = True
-                flash(f'¡Bienvenido, {user["nombre"]}! Has iniciado sesión correctamente.', 'success')
-                return redirect(url_for('inicio'))
+                user_found = user
+                break
 
-        if not user_found:
+        if user_found:
+            flash(f'¡Bienvenido, {user_found["nombre"]}! Has sido validado (pero no recordado).', 'success')
+            return redirect(url_for('inicio'))
+        else:
             flash('Fallo al iniciar sesión. Verifica tu correo y contraseña.', 'danger')
-            return render_template('login.html', title='Iniciar Sesión', no_menu=True)
+            return redirect(url_for('login')) 
 
     return render_template('login.html', title='Iniciar Sesión', no_menu=True)
 
@@ -68,6 +72,7 @@ def login():
 def registrame():
     """Ruta para la página de Registro. Guarda los datos en el objeto USERS."""
     global USERS 
+        
     error = None
 
     if request.method == "POST":
@@ -91,16 +96,15 @@ def registrame():
         
         if error is not None:
             flash(error, 'danger')
-            return render_template('registro.html', title='Registro', no_menu=True) 
+            return redirect(url_for('registrame')) 
         else:
-
             new_user = {
                 'nombre': nombre,
                 'apellido': apellido,
                 'email': email,
                 'password': password 
             }
-            USERS.append(new_user)            
+            USERS.append(new_user) 
             flash('¡Registro exitoso! Ahora puedes iniciar sesión.', 'success')
             return redirect(url_for('login'))
 
