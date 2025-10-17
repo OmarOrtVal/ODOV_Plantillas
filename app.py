@@ -3,6 +3,8 @@ from flask import Flask, render_template, url_for, request, redirect, flash
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'una_clave_secreta_muy_segura_y_larga' 
 
+USERS = []
+
 @app.route('/')
 def index():
     """Ruta de inicio. Redirige a login."""
@@ -39,39 +41,75 @@ def acerca_de():
     contenido = "En esta pagina conoceras acerca de el creador de esta pagina web..."
     return render_template('acerca_de.html', title='Acerca de...', content=contenido)
 
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    """Ruta para la página de Inicio de Sesión."""
+    """Ruta para la página de Inicio de Sesión. Verifica los datos registrados en USERS."""
     if request.method == 'POST':
         email = request.form.get('email_login')
         password = request.form.get('password_login')
 
-        if email == "test@correo.com" and password == "1234":
-            flash('¡Bienvenido! Has iniciado sesión correctamente.', 'success')
-            return redirect(url_for('inicio'))
-        else:
+        user_found = False
+        
+        for user in USERS:
+            if user['email'] == email and user['password'] == password:
+                user_found = True
+                flash(f'¡Bienvenido, {user["nombre"]}! Has iniciado sesión correctamente.', 'success')
+                return redirect(url_for('inicio'))
+
+        if not user_found:
             flash('Fallo al iniciar sesión. Verifica tu correo y contraseña.', 'danger')
+            return render_template('login.html', title='Iniciar Sesión', no_menu=True)
 
-    return render_template('login.html', title='Iniciar Sesión')
+    return render_template('login.html', title='Iniciar Sesión', no_menu=True)
 
-@app.route('/registro', methods=['GET', 'POST'])
-def registro():
-    """Ruta para la página de Registro."""
-    if request.method == 'POST':
-        nombre = request.form.get('nombre')
+@app.route('/registrame', methods=('GET', 'POST')) 
+def registrame():
+    """Ruta para la página de Registro. Guarda los datos en el objeto USERS."""
+    global USERS 
+    error = None
+
+    if request.method == "POST":
+        nombre = request.form.get('nombre') 
         apellido = request.form.get('apellido')
-        email = request.form.get('email_registro') 
+        email = request.form.get('contacto') 
+        password = request.form.get('contrasena') 
+        confirmPassword = request.form.get('confirmaContraseña') 
         
-        if not all([nombre, apellido, email]):
-            flash('Todos los campos son obligatorios.', 'danger')
-            return render_template('registro.html', title='Registro')
+        if not all([nombre, apellido, email, password, confirmPassword]):
+            error = 'Todos los campos son obligatorios.'
+        
+        if error is None:
+            for user in USERS:
+                if user['email'] == email:
+                    error = f'El correo electrónico "{email}" ya está registrado.'
+                    break
 
-        print(f"Nuevo usuario registrado: {nombre} {apellido} con correo {email}")
+        if error is None and password != confirmPassword:
+            error = "La contraseña no coincide" 
         
-        flash('Registro exitoso. ¡Ahora puedes iniciar sesión!', 'success')
-        return redirect(url_for('login'))
-        
-    return render_template('registro.html', title='Registro')
+        if error is not None:
+            flash(error, 'danger')
+            return render_template('registro.html', title='Registro', no_menu=True) 
+        else:
+
+            new_user = {
+                'nombre': nombre,
+                'apellido': apellido,
+                'email': email,
+                'password': password 
+            }
+            USERS.append(new_user)            
+            flash('¡Registro exitoso! Ahora puedes iniciar sesión.', 'success')
+            return redirect(url_for('login'))
+
+    return render_template('registro.html', title='Registro', no_menu=True)
+
+@app.route('/registro')
+def registro():
+    """Ruta de transición para el registro."""
+    return redirect(url_for('registrame'))
 
 if __name__ == '__main__':
     app.run(debug=True)
