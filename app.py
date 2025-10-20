@@ -64,7 +64,7 @@ def login():
             return redirect(url_for('inicio'))
         else:
             flash('Fallo al iniciar sesión. Verifica tu correo y contraseña.', 'danger')
-            return redirect(url_for('login')) 
+            return redirect(url_for('registro')) 
 
     return render_template('login.html', title='Iniciar Sesión', no_menu=True)
 
