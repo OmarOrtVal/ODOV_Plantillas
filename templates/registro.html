@@ -3,13 +3,6 @@
 {% block title %}Registro{% endblock title %}
 
 {% block content %}
-{% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-        {% for category, message in messages %}
-            <div class="alert alert-{{ category }}">{{ message }}</div>
-        {% endfor %}
-    {% endif %}
-{% endwith %}
 
 <div class="d-flex justify-content-center align-items-center" style="padding-top: 30px; padding-bottom: 30px;">
     <div class="card p-3 shadow-lg" style="width: 420px; border-radius: 8px;">

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <title>{% block title %}Desarrollo de Plantilla Base{% endblock title %}</title>
 
@@ -14,14 +14,20 @@
     {% if not no_menu %}
     <nav class="navbar navbar-expand-lg bg-black">
         <div class="container">
-            <a class="navbar-brand  text-white" href="{{ url_for('inicio') }}">Desarrollo de Plantilla Base</a>
+            <a class="navbar-brand text-white" href="{{ url_for('inicio') }}">Desarrollo de Plantilla Base</a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             
-            <div class="collapse navbar-collapse " id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+                    
+                    {% if user_logged_in %}
+                    
+                    <li class="nav-item">
+                        <span class="nav-link text-white fw-bold">Hola, {{ user_nombre }}</span>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="{{ url_for('inicio') }}">Inicio</a>
                     </li>
@@ -37,10 +43,22 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" href="{{ url_for('acerca_de') }}">Acerca de...</a>
                     </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link text-white btn ms-2" href="{{ url_for('logout') }}">Cerrar Sesión</a>
+                    </li>
+                    
+                    {% else %}
+                    
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{{ url_for('login') }}">Iniciar Sesión</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="{{ url_for('registrame') }}">Regístrate</a>
                     </li>
-                    </ul>
+                    
+                    {% endif %}
+                </ul>
             </div>
         </div>
     </nav>
@@ -48,6 +66,18 @@
     
     <div class="content">
         <div class="container">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="row">
+                        <div class="col-12 mt-3">
+                            {% for category, message in messages %}
+                                <div class="alert alert-{{ category }}" role="alert">{{ message }}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endwith %}
+            
             {% block content %}{% endblock content %}
         </div>
     </div>
@@ -58,6 +88,6 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0dKxX6l2rF5Kq7Zl2nQh7e9fH5h4uXk8ZzK/vP8Bf4v+N3U9v1Z+V0/Q" crossorigin="anonymous"></script>
 </body>
 </html>
