@@ -48,27 +48,31 @@ def index():
     return redirect(url_for('login')) 
 
 @app.route('/inicio')
-def inicio(user_logged_in, user_nombre): 
-    """Ruta para la página de inicio."""
-    info = f"¡Hola {user_nombre}! Aquí encontrarás información fascinante sobre animales exóticos, vehículos antiguos, maravillas del mundo y más. ¡Explora el menú superior para empezar! (Sesión iniciada como: {session.get('user_email')})"
+def inicio(): 
+    """
+    Ruta para la página de inicio. Ahora usa session.get('user_nombre') directamente 
+    en lugar de g.user_nombre.
+    """
+    current_user_name = session.get('user_nombre')
+    info = f"¡Hola {current_user_name}! Aquí encontrarás información fascinante sobre animales exóticos, vehículos antiguos, maravillas del mundo y más. ¡Explora el menú superior para empezar! (Sesión iniciada como: {session.get('user_email')})"
     
-    return render_template('inicio.html', title='Inicio', info=info, user_logged_in=user_logged_in, user_nombre=user_nombre)
+    return render_template('inicio.html', title='Inicio', info=info)
 
 
 @app.route('/animales-exoticos')
-def animales_exoticos(user_logged_in, user_nombre):
+def animales_exoticos():
     """Ruta para la sección de Animales Exóticos."""
     contenido = "Bienvenido a la pestaña dedicada a los animales exóticos. Aquí descubrirás especies únicas de todo el planeta."
     return render_template('animales_exoticos.html', title='Animales Exóticos', content=contenido, user_logged_in=user_logged_in, user_nombre=user_nombre)
 
 
 @app.route('/vehiculos-antiguos')
-def vehiculos_antiguos(user_logged_in, user_nombre):
+def vehiculos_antiguos():
     contenido = "Explora la historia de los automóviles clásicos, su..."
     return render_template('vehiculos_antiguos.html', title='Vehículos Antiguos', content=contenido, user_logged_in=user_logged_in, user_nombre=user_nombre)
 
 @app.route('/maravillas-del_mundo')
-def maravillas_del_mundo(user_logged_in, user_nombre):
+def maravillas_del_mundo():
     contenido = "Viaja a través de la historia y admira las siete grandes maravillas del mundo, tanto antiguas como modernas."
     return render_template('maravillas_del_mundo.html', title='Maravillas del Mundo', content=contenido, user_logged_in=user_logged_in, user_nombre=user_nombre)
 
