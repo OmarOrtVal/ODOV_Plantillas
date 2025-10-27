@@ -6,26 +6,6 @@ app.config['SECRET_KEY'] = 'una_clave_secreta_muy_segura_y_larga'
 USERS = [] 
 
 
-def login_required(f):
-    """
-    Redirige al login si no hay 'user_email' en la sesión.
-    Se asigna el nombre manualmente para evitar conflictos de endpoint.
-    """
-    def decorated_function(*args, **kwargs):
-        if 'user_email' not in session:
-            flash('Necesitas iniciar sesión para ver esta página.', 'warning')
-            return redirect(url_for('login')) 
-        
-        kwargs['user_logged_in'] = True
-        kwargs['user_nombre'] = session.get('user_nombre', 'Explorador')
-        return f(*args, **kwargs)
-    
-    decorated_function.__name__ = f.__name__ 
-    decorated_function.__doc__ = f.__doc__
-    
-    return decorated_function
-
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if 'user_email' in session:
@@ -68,7 +48,6 @@ def index():
     return redirect(url_for('login')) 
 
 @app.route('/inicio')
-@login_required 
 def inicio(user_logged_in, user_nombre): 
     """Ruta para la página de inicio."""
     info = f"¡Hola {user_nombre}! Aquí encontrarás información fascinante sobre animales exóticos, vehículos antiguos, maravillas del mundo y más. ¡Explora el menú superior para empezar! (Sesión iniciada como: {session.get('user_email')})"
@@ -77,7 +56,6 @@ def inicio(user_logged_in, user_nombre):
 
 
 @app.route('/animales-exoticos')
-@login_required 
 def animales_exoticos(user_logged_in, user_nombre):
     """Ruta para la sección de Animales Exóticos."""
     contenido = "Bienvenido a la pestaña dedicada a los animales exóticos. Aquí descubrirás especies únicas de todo el planeta."
@@ -85,19 +63,16 @@ def animales_exoticos(user_logged_in, user_nombre):
 
 
 @app.route('/vehiculos-antiguos')
-@login_required 
 def vehiculos_antiguos(user_logged_in, user_nombre):
     contenido = "Explora la historia de los automóviles clásicos, su..."
     return render_template('vehiculos_antiguos.html', title='Vehículos Antiguos', content=contenido, user_logged_in=user_logged_in, user_nombre=user_nombre)
 
 @app.route('/maravillas-del_mundo')
-@login_required 
 def maravillas_del_mundo(user_logged_in, user_nombre):
     contenido = "Viaja a través de la historia y admira las siete grandes maravillas del mundo, tanto antiguas como modernas."
     return render_template('maravillas_del_mundo.html', title='Maravillas del Mundo', content=contenido, user_logged_in=user_logged_in, user_nombre=user_nombre)
 
 @app.route('/acerca-de')
-@login_required 
 def acerca_de(user_logged_in, user_nombre):
     contenido = "Información sobre el desarrollador y el propósito de este sitio web."
     return render_template('acerca_de.html', title='Acerca de...', content=contenido, user_logged_in=user_logged_in, user_nombre=user_nombre)

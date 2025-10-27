@@ -11,7 +11,6 @@
 </head>
 <body>
     
-    {% if not no_menu %}
     <nav class="navbar navbar-expand-lg bg-black">
         <div class="container">
             <a class="navbar-brand text-white" href="{{ url_for('inicio') }}">Desarrollo de Plantilla Base</a>
@@ -23,7 +22,6 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     
-                    {% if user_logged_in %}
                     
                     <li class="nav-item">
                         <span class="nav-link text-white fw-bold">Hola, {{ user_nombre }}</span>
@@ -48,7 +46,6 @@
                         <a class="nav-link text-white btn ms-2" href="{{ url_for('logout') }}">Cerrar Sesión</a>
                     </li>
                     
-                    {% else %}
                     
                     <li class="nav-item">
                         <a class="nav-link text-white" href="{{ url_for('login') }}">Iniciar Sesión</a>
@@ -57,12 +54,10 @@
                         <a class="nav-link text-white" href="{{ url_for('registrame') }}">Regístrate</a>
                     </li>
                     
-                    {% endif %}
                 </ul>
             </div>
         </div>
     </nav>
-    {% endif %}
     
     <div class="content">
         <div class="container">
