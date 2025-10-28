@@ -6,6 +6,13 @@ app.config['SECRET_KEY'] = 'una_clave_secreta_muy_segura_y_larga'
 USERS = [] 
 
 
+@app.context_processor
+def inject_user_data():
+    current_user = 'user_email' in session
+    user_nombre = session.get('user_nombre')
+    return dict(current_user=current_user, user_nombre=user_nombre)
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if 'user_email' in session:
@@ -42,44 +49,36 @@ def logout():
 
 @app.route('/')
 def index():
-    """Ruta raíz: redirige a 'inicio' si está logueado o a 'login' si no lo está."""
     if 'user_email' in session:
-        return redirect(url_for('inicio'))
-    return redirect(url_for('login')) 
+        return redirect(url_for('login'))
+    return redirect(url_for('inicio')) 
 
 @app.route('/inicio')
 def inicio(): 
-    """
-    Ruta para la página de inicio. Ahora usa session.get('user_nombre') directamente 
-    en lugar de g.user_nombre.
-    """
-    current_user_name = session.get('user_nombre')
-    info = f"¡Hola {current_user_name}! Aquí encontrarás información fascinante sobre animales exóticos, vehículos antiguos, maravillas del mundo y más. ¡Explora el menú superior para empezar! (Sesión iniciada como: {session.get('user_email')})"
+    info = f"¡Hola {session.get('user_nombre', 'invitado')}! Aquí encontrarás información fascinante... (Sesión iniciada como: {session.get('user_email', 'N/A')})"
     
     return render_template('inicio.html', title='Inicio', info=info)
 
-
 @app.route('/animales-exoticos')
 def animales_exoticos():
-    """Ruta para la sección de Animales Exóticos."""
     contenido = "Bienvenido a la pestaña dedicada a los animales exóticos. Aquí descubrirás especies únicas de todo el planeta."
-    return render_template('animales_exoticos.html', title='Animales Exóticos', content=contenido, user_logged_in=user_logged_in, user_nombre=user_nombre)
-
+    return render_template('animales_exoticos.html', title='Animales Exóticos', content=contenido)
 
 @app.route('/vehiculos-antiguos')
 def vehiculos_antiguos():
     contenido = "Explora la historia de los automóviles clásicos, su..."
-    return render_template('vehiculos_antiguos.html', title='Vehículos Antiguos', content=contenido, user_logged_in=user_logged_in, user_nombre=user_nombre)
+    return render_template('vehiculos_antiguos.html', title='Vehículos Antiguos', content=contenido)
 
 @app.route('/maravillas-del_mundo')
 def maravillas_del_mundo():
     contenido = "Viaja a través de la historia y admira las siete grandes maravillas del mundo, tanto antiguas como modernas."
-    return render_template('maravillas_del_mundo.html', title='Maravillas del Mundo', content=contenido, user_logged_in=user_logged_in, user_nombre=user_nombre)
+    return render_template('maravillas_del_mundo.html', title='Maravillas del Mundo', content=contenido)
 
 @app.route('/acerca-de')
-def acerca_de(user_logged_in, user_nombre):
+def acerca_de():
     contenido = "Información sobre el desarrollador y el propósito de este sitio web."
-    return render_template('acerca_de.html', title='Acerca de...', content=contenido, user_logged_in=user_logged_in, user_nombre=user_nombre)
+    return render_template('acerca_de.html', title='Acerca de...', content=contenido)
+
 
 @app.route('/registrame', methods=['GET', 'POST'])
 def registrame():

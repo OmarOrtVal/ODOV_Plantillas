@@ -22,10 +22,6 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     
-                    
-                    <li class="nav-item">
-                        <span class="nav-link text-white fw-bold">Hola, {{ user_nombre }}</span>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="{{ url_for('inicio') }}">Inicio</a>
                     </li>
@@ -42,17 +38,21 @@
                         <a class="nav-link text-white" href="{{ url_for('acerca_de') }}">Acerca de...</a>
                     </li>
                     
-                    <li class="nav-item">
-                        <a class="nav-link text-white btn ms-2" href="{{ url_for('logout') }}">Cerrar Sesión</a>
-                    </li>
-                    
-                    
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ url_for('login') }}">Iniciar Sesión</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ url_for('registrame') }}">Regístrate</a>
-                    </li>
+                    {% if current_user %} 
+                        <li class="nav-item">
+                            <span class="nav-link text-white fw-bold">Hola, {{ user_nombre }}</span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white btn btn-secondary ms-2" href="{{ url_for('logout') }}">Cerrar Sesión</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ url_for('login') }}">Iniciar Sesión</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="{{ url_for('registrame') }}">Registro</a>
+                        </li>
+                    {% endif %}
                     
                 </ul>
             </div>
